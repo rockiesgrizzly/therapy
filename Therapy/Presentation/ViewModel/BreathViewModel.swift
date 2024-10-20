@@ -8,14 +8,14 @@ class BreathViewModel: ObservableObject {
     @Published var currentSecond: Int = 0
     @Published var scale: CGFloat = 1.0
     
-    let totalBreathingSeconds: Int
-    let title = "Breathe for"
+    let totalBreathingSeconds: Float
+    static let title = "Breathe for"
     let providerText = "Provider is in the session"
     let joinText = "Join Now"
     
     var timer: Timer?
     
-    init(userCompletedBreathTask: Binding<Bool>, userSkippedToSession: Binding<Bool>, totalBreathingSeconds: Int) {
+    init(userCompletedBreathTask: Binding<Bool>, userSkippedToSession: Binding<Bool>, totalBreathingSeconds: Float) {
         _userCompletedBreathTask = userCompletedBreathTask
         _userSkippedToSession = userSkippedToSession
         self.totalBreathingSeconds = totalBreathingSeconds
@@ -28,7 +28,7 @@ class BreathViewModel: ObservableObject {
             currentSecond += 1
             scale = currentSecond % 2 == 0 ? 1.0 : 0.5 // Toggle scale every second
             
-            if currentSecond >= totalBreathingSeconds {
+            if currentSecond >= Int(totalBreathingSeconds) {
                 timer.invalidate()
                 userCompletedBreathTask = true
             }

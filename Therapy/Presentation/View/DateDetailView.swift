@@ -23,6 +23,7 @@ struct DateDetailView: View {
                 .stroke(viewModel.borderColor, lineWidth: 1)
                 .padding(.horizontal, 32)
         )
+        .accessibilityIdentifier("date detail view \(viewModel.date)")
     }
 }
 

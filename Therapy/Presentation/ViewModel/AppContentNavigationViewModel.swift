@@ -73,7 +73,7 @@ class AppContentNavigationViewModel: ObservableObject {
         dateTasks[task.offset].selected = true
     }
     
-    var currentDateTaskBreathCount: Int { currentDateTask?.breathCount ?? 9 }
+    var currentDateTaskBreathCount: Float { currentDateTask?.breathCount ?? 9 }
     var currentDateTaskMoods: [String] { currentDateTask?.moodChoices ?? [String]() }
     
     // MARK: - Private

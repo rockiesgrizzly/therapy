@@ -4,7 +4,7 @@ class DatesListViewModel: ObservableObject {
     @Binding var dateTaskToSelect: DateTask?
     let dateTasks: [DateTask]
     
-    let titleText = "My Tasks"
+    static let titleText = "My Tasks"
     
     init(dateTaskToSelect: Binding<DateTask?>, dateTasks: [DateTask]) {
         _dateTaskToSelect = dateTaskToSelect

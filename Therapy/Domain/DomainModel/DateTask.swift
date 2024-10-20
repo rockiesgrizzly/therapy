@@ -5,7 +5,7 @@ struct DateTask: Identifiable, Equatable, Hashable {
     let date: Date
     var completed: Bool
     var enabled: Bool = false
-    let breathCount: Int?
+    let breathCount: Float?
     let moodChoices: [String]?
     
     /// Changes with user selection

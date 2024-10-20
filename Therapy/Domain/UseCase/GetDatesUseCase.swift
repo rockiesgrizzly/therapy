@@ -7,7 +7,7 @@ struct GetDatesUseCase: GetDatesUseCaseProtocol {
     static var result: Result<[DateTask], Error> {
         get async throws {
             do {
-                let retrievedDates = try await ProgressRepository.dates
+                let retrievedDates = try await ProgressRepository.dates()
                 return .success(DateTask.from(retrievedDates))
             } catch {
                 return .failure(error)

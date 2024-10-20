@@ -23,6 +23,7 @@ struct WaitingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(viewModel.viewBackgroundColor)
+        .accessibilityIdentifier("waiting view")
     }
     
     private func userTappedButton() {

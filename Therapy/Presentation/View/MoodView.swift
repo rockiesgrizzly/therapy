@@ -7,5 +7,7 @@ struct MoodView: View {
     
     var body: some View {
         Spacer()
+            .accessibilityIdentifier("mood view")
     }
+       
 }

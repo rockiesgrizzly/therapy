@@ -6,7 +6,7 @@ struct DatesListView: View {
     
     var body: some View {
         VStack {
-            Text(viewModel.titleText)
+            Text(DatesListViewModel.titleText)
                 .font(.system(size: 34, weight: .bold))
             VStack(spacing: 16) {
                 ForEach(Array(viewModel.dateTasks.enumerated()), id: \.element.id) { index, task in
@@ -23,7 +23,9 @@ struct DatesListView: View {
             }
             .padding(.vertical, 36)
             Spacer()
-        }.padding(.vertical, 90)
+        }
+        .padding(.vertical, 90)
+        .accessibilityIdentifier("dates list view")
     }
     
     func dateString(from date: Date) -> String { date.formatted(.dateTime.month(.wide).day()) }

@@ -1,9 +1,9 @@
 
 protocol ProgressDataSourceProtocol {
-    var dates: [ProgressDate] { get set }
+    static func dates() async throws -> [ProgressDate]
 }
 
-struct ProgressDataSource {
+struct ProgressDataSource: ProgressDataSourceProtocol {
     static private var storedDates = [ProgressDate]()
     
     // with more time, would persist and sync with retrievedDates

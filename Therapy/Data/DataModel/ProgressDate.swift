@@ -3,7 +3,7 @@ import Foundation
 struct ProgressDate {
     let date: Date
     var completed: Bool
-    let breathCount: Int?
+    let breathCount: Float?
     let moodChoices: [String]?
 }
 

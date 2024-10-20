@@ -23,6 +23,7 @@ struct SessionView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(viewModel.viewBackgroundColor)
+        .accessibilityIdentifier("session view")
     }
     
     private func userTappedButton() {

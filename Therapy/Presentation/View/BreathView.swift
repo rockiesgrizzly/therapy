@@ -5,17 +5,19 @@ struct BreathView: View {
     
     var body: some View {
         VStack {
-            Text(viewModel.title)
+            Text(BreathViewModel.title)
                 .font(.system(size: 34, weight: .bold))
-            Text("\(viewModel.totalBreathingSeconds - viewModel.currentSecond)")
+            Text("\(Int(viewModel.totalBreathingSeconds) - viewModel.currentSecond)")
                 .font(.system(size: 60, weight: .bold))
                 .padding(.vertical, 30)
+                .accessibilityIdentifier("breathing total seconds")
             Circle()
                 .fill(circleColor)
                 .frame(width: 100, height: 100)
                 .scaleEffect(viewModel.scale)
                 .animation(.easeInOut(duration: 1), value: viewModel.scale) // Animate scale changes
                 .offset(y: 30)
+                .accessibilityIdentifier("breathing demonstration circle")
             
             if viewModel.providerIsReady {
                 VStack {
@@ -34,10 +36,11 @@ struct BreathView: View {
             }
             Spacer()
         }
+        .padding(.vertical, 90)
         .onAppear {
             viewModel.respondToOnAppear()
         }
-        .padding(.vertical, 90)
+        .accessibilityIdentifier("breath view")
     }
     
     var circleColor: Color {
