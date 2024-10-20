@@ -17,6 +17,8 @@ struct WaitingView: View {
                 .frame(width: 115, height: 50)
                 .background(viewModel.buttonBackgroundColor)
                 .cornerRadius(10)
+                .accessibilityIdentifier(viewModel.buttonText)
+                .buttonStyle(CustomButtonStyle())
             }
             
             .padding(.vertical, 363)

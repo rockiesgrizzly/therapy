@@ -17,6 +17,8 @@ struct SessionView: View {
                 .frame(width: 115, height: 50)
                 .background(Color.black)
                 .cornerRadius(10)
+                .accessibilityIdentifier("Exit")
+                .buttonStyle(CustomButtonStyle())
             }
             
             .padding(.vertical, 363)

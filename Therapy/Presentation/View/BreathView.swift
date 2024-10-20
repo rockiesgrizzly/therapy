@@ -32,6 +32,8 @@ struct BreathView: View {
                     .frame(width: 115, height: 50)
                     .background(buttonBackgroundColor)
                     .cornerRadius(10)
+                    .accessibilityIdentifier(viewModel.joinText)
+                    .buttonStyle(CustomButtonStyle())
                 }.offset(y: 204)
             }
             Spacer()

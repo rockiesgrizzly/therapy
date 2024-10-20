@@ -54,8 +54,6 @@ class DateDetailViewModel: ObservableObject {
     var dateTextColor: Color {
         if enabled == false {
             return .gray
-        } else if completed {
-            return .black
         } else if colorScheme == .light {
             return .black
         }

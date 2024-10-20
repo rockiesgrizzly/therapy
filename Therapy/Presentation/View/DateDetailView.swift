@@ -15,7 +15,6 @@ struct DateDetailView: View {
                 .padding(.trailing, 18.5)
                 .foregroundStyle(viewModel.foregroundColor)
         }
-        .background(viewModel.completed ? viewModel.completedColor : Color.clear)
         .cornerRadius(10)
         .padding(.horizontal, 32)
         .overlay(

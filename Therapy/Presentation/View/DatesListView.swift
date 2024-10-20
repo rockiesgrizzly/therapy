@@ -14,11 +14,13 @@ struct DatesListView: View {
                                                         enabled: task.enabled,
                                                         completed: task.completed,
                                                         colorScheme: colorScheme)
-                    DateDetailView(viewModel: detailViewModel)
-                        .onTapGesture {
-                            guard task.enabled == true else { return }
-                            viewModel.dateTaskToSelect = task
-                        }
+                    Button(action: {
+                        guard detailViewModel.enabled else { return }
+                        viewModel.dateTaskToSelect = task
+                    }) { // ContentView
+                        DateDetailView(viewModel: detailViewModel)
+                    }
+                    .buttonStyle(CustomButtonStyle())
                 }
             }
             .padding(.vertical, 36)
