@@ -1,9 +1,3 @@
-//
-//  TherapyUITestsLaunchTests.swift
-//  TherapyUITests
-//
-//  Created by joshmac on 10/15/24.
-//
 
 import XCTest
 
