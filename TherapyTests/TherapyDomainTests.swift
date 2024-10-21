@@ -54,8 +54,8 @@ struct TherapyUseCaseTests {
     @Test
     func testGetNextViewTypeUseCase() {
         #expect(GetNextViewTypeUseCase.result(after: .datesList) == .breath)
-        #expect(GetNextViewTypeUseCase.result(after: .breath) == .waiting)
-        #expect(GetNextViewTypeUseCase.result(after: .waiting) == .session)
+        #expect(GetNextViewTypeUseCase.result(after: .breath) == .join)
+        #expect(GetNextViewTypeUseCase.result(after: .join) == .session)
         #expect(GetNextViewTypeUseCase.result(after: .session) == .datesList)
         #expect(GetNextViewTypeUseCase.result(after: .mood) == .datesList)
     }

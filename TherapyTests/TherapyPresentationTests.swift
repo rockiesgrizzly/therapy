@@ -16,7 +16,7 @@ struct TherapyPresentationTests {
         #expect(viewModel.dateTaskToSelect == nil)
         #expect(viewModel.userCompletedBreathTask == false)
         #expect(viewModel.userJoinedFromBreathTask == false)
-        #expect(viewModel.userCompletedWaitingTask == false)
+        #expect(viewModel.userCompletedJoinTask == false)
         #expect(viewModel.userCompletedSessionTask == false)
         #expect(viewModel.userCompletedMoodTask == false)
     }
@@ -88,7 +88,7 @@ struct TherapyPresentationTests {
 
     // Add tests for colors and other properties
 
-    // MARK: - WaitingViewModel Tests
+    // MARK: - JoiniewModel Tests
 
     private var falseBinding: Binding<Bool> {
         Binding<Bool>(

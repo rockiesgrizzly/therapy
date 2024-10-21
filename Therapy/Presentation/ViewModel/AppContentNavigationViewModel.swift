@@ -30,13 +30,13 @@ class AppContentNavigationViewModel: ObservableObject {
     
     @Published var userJoinedFromBreathTask: Bool = false {
         didSet {
-            currentView = GetNextViewTypeUseCase.result(after:  .waiting)
+            currentView = GetNextViewTypeUseCase.result(after:  .join)
         }
     }
     
-    @Published var userCompletedWaitingTask: Bool = false {
+    @Published var userCompletedJoinTask: Bool = false {
         didSet {
-            currentView = GetNextViewTypeUseCase.result(after: .waiting)
+            currentView = GetNextViewTypeUseCase.result(after: .join)
         }
     }
     

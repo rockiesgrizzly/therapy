@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct WaitingView: View {
-    @ObservedObject var viewModel: WaitingViewModel
+struct JoinView: View {
+    @ObservedObject var viewModel: JoinViewModel
     
     var body: some View {
         VStack {
@@ -25,10 +25,10 @@ struct WaitingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(viewModel.viewBackgroundColor)
-        .accessibilityIdentifier("waiting view")
+        .accessibilityIdentifier("join view")
     }
     
     private func userTappedButton() {
-        viewModel.userCompletedWaiting = true
+        viewModel.userCompletedJoin = true
     }
 }

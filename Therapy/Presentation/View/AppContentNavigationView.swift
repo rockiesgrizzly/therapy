@@ -17,8 +17,8 @@ struct AppContentNavigationView: View {
                                                           totalBreathingSeconds: viewModel.currentDateTaskBreathCount,
                                                           colorScheme: colorScheme))
                     .transition(.opacity)
-                case .waiting:
-                    WaitingView(viewModel: WaitingViewModel(userCompletedWaiting: $viewModel.userCompletedWaitingTask))
+                case .join:
+                    JoinView(viewModel: JoinViewModel(userCompletedJoin: $viewModel.userCompletedJoinTask))
                         .transition(.opacity)
                 case .session:
                     SessionView(viewModel: SessionViewModel(userCompletedSessionTask: $viewModel.userCompletedSessionTask))

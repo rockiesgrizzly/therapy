@@ -1,12 +1,12 @@
 import SwiftUI
 
-class WaitingViewModel: ObservableObject {
-    @Binding var userCompletedWaiting: Bool
+class JoinViewModel: ObservableObject {
+    @Binding var userCompletedJoin: Bool
     let titleText = "Provider is in the session"
     let buttonText = "Join Now"
     
-    init(userCompletedWaiting: Binding<Bool>) {
-        _userCompletedWaiting = userCompletedWaiting
+    init(userCompletedJoin: Binding<Bool>) {
+        _userCompletedJoin = userCompletedJoin
     }
     
     // MARK: - Colors
