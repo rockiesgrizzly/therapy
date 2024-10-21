@@ -27,8 +27,8 @@ struct TherapyPresentationTests {
 
     @Test
     func testBreathViewModel_initialization() {
-        let viewModel = BreathViewModel(userCompletedBreathTask: falseBinding, userSkippedToSession: falseBinding, totalBreathingSeconds: 60)
-        #expect(viewModel.providerIsReady == true)
+        let viewModel = BreathViewModel(userCompletedBreathTask: falseBinding, userSkippedToSession: falseBinding, showJoinButton: trueBinding, totalBreathingSeconds: 60, colorScheme: .light)
+        #expect(viewModel.showJoinButton == true)
         #expect(viewModel.currentSecond == 0)
         #expect(viewModel.scale == 1.0)
         #expect(viewModel.totalBreathingSeconds == 60)
@@ -36,7 +36,7 @@ struct TherapyPresentationTests {
 
     @Test
     func testBreathViewModel_respondToOnAppear() async throws {
-        let viewModel = BreathViewModel(userCompletedBreathTask: falseBinding, userSkippedToSession: falseBinding, totalBreathingSeconds: 0.1)
+        let viewModel = BreathViewModel(userCompletedBreathTask: falseBinding, userSkippedToSession: falseBinding, showJoinButton: trueBinding, totalBreathingSeconds: 0.1, colorScheme: .light)
         viewModel.respondToOnAppear()
 
         Task {
@@ -80,7 +80,7 @@ struct TherapyPresentationTests {
         let dateTasks = [
             DateTask(date: Date(), completed: false, breathCount: 5, moodChoices: ["Happy"])
         ]
-        let viewModel = DatesListViewModel(dateTaskToSelect: nilBinding, dateTasks: dateTasks)
+        let viewModel = DatesListViewModel(dateTaskToSelect: nilBinding, dateTasks: dateTasks, colorScheme: .light)
         #expect(viewModel.dateTasks.count == 1)
     }
 
@@ -89,6 +89,13 @@ struct TherapyPresentationTests {
     // Add tests for colors and other properties
 
     // MARK: - JoiniewModel Tests
+    
+    private var trueBinding: Binding<Bool> {
+        Binding<Bool>(
+            get: { true },
+            set: { _ in }
+        )
+    }
 
     private var falseBinding: Binding<Bool> {
         Binding<Bool>(

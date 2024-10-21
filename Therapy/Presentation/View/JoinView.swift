@@ -9,16 +9,19 @@ struct JoinView: View {
                 Text(viewModel.titleText)
                     .font(.system(size: 34, weight: .regular))
                     .foregroundStyle(.black)
-                Button(action: userTappedButton) {
-                    Text(viewModel.buttonText)
-                        .font(.system(size: 17, weight: .regular))
-                        .foregroundStyle(.black)
+                
+                if viewModel.showJoinButton {
+                    Button(action: userTappedButton) {
+                        Text(viewModel.buttonText)
+                            .font(.system(size: 17, weight: .regular))
+                            .foregroundStyle(.black)
+                    }
+                    .frame(width: 115, height: 50)
+                    .background(viewModel.buttonBackgroundColor)
+                    .cornerRadius(10)
+                    .accessibilityIdentifier(viewModel.buttonText)
+                    .buttonStyle(CustomButtonStyle())
                 }
-                .frame(width: 115, height: 50)
-                .background(viewModel.buttonBackgroundColor)
-                .cornerRadius(10)
-                .accessibilityIdentifier(viewModel.buttonText)
-                .buttonStyle(CustomButtonStyle())
             }
             
             .padding(.vertical, 363)

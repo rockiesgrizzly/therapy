@@ -1,12 +1,14 @@
 import SwiftUI
 
 class JoinViewModel: ObservableObject {
+    @Binding var showJoinButton: Bool
     @Binding var userCompletedJoin: Bool
     let titleText = "Provider is in the session"
     let buttonText = "Join Now"
     
-    init(userCompletedJoin: Binding<Bool>) {
+    init(userCompletedJoin: Binding<Bool>, userJoinButton: Binding<Bool>) {
         _userCompletedJoin = userCompletedJoin
+        _showJoinButton = userJoinButton
     }
     
     // MARK: - Colors

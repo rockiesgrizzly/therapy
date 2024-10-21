@@ -14,11 +14,14 @@ struct AppContentNavigationView: View {
                 case .breath:
                     BreathView(viewModel: BreathViewModel(userCompletedBreathTask: $viewModel.userCompletedBreathTask,
                                                           userSkippedToSession: $viewModel.userJoinedFromBreathTask,
+                                                          showJoinButton: $viewModel.providerIsReady,
                                                           totalBreathingSeconds: viewModel.currentDateTaskBreathCount,
                                                           colorScheme: colorScheme))
                     .transition(.opacity)
+                case .waiting:
+                    WaitingView()
                 case .join:
-                    JoinView(viewModel: JoinViewModel(userCompletedJoin: $viewModel.userCompletedJoinTask))
+                    JoinView(viewModel: JoinViewModel(userCompletedJoin: $viewModel.userCompletedJoinTask, userJoinButton: $viewModel.providerIsReady))
                         .transition(.opacity)
                 case .session:
                     SessionView(viewModel: SessionViewModel(userCompletedSessionTask: $viewModel.userCompletedSessionTask))

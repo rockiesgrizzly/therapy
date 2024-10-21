@@ -6,7 +6,7 @@ struct DatesListView: View {
     
     var body: some View {
         VStack {
-            Text(DatesListViewModel.titleText)
+            Text(viewModel.titleText)
                 .font(.system(size: 34, weight: .bold))
             VStack(spacing: 16) {
                 ForEach(Array(viewModel.dateTasks.enumerated()), id: \.element.id) { index, task in

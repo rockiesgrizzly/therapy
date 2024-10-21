@@ -42,7 +42,7 @@ struct TherapyUseCaseTests {
         }
         
         do {
-            let result = try await MockProgressRepository.dates(dataSource: MockProgressDataSource.self)
+            let _ = try await MockProgressRepository.dates(dataSource: MockProgressDataSource.self)
             Issue.record("Error not thrown as expected")
         } catch {
             #expect(error is ProgressDataSourceError)

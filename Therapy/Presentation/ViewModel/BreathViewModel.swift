@@ -3,22 +3,24 @@ import SwiftUI
 class BreathViewModel: ObservableObject {
     @Binding var userCompletedBreathTask: Bool
     @Binding var userSkippedToSession: Bool
+    @Binding var showJoinButton: Bool
     
-    @State var providerIsReady = true
     @Published var currentSecond: Int = 0
     @Published var scale: CGFloat = 1.0
     var colorScheme: ColorScheme
     
     let totalBreathingSeconds: Float
-    static let title = "Breathe for"
+    let title = "Breathe for"
     let providerText = "Provider is in the session"
     let joinText = "Join Now"
     
     var timer: Timer?
     
-    init(userCompletedBreathTask: Binding<Bool>, userSkippedToSession: Binding<Bool>, totalBreathingSeconds: Float, colorScheme: ColorScheme) {
+    init(userCompletedBreathTask: Binding<Bool>, userSkippedToSession: Binding<Bool>, showJoinButton: Binding<Bool>,
+         totalBreathingSeconds: Float, colorScheme: ColorScheme) {
         _userCompletedBreathTask = userCompletedBreathTask
         _userSkippedToSession = userSkippedToSession
+        _showJoinButton = showJoinButton
         self.totalBreathingSeconds = totalBreathingSeconds
         self.colorScheme = colorScheme
     }

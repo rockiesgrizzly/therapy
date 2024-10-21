@@ -5,7 +5,7 @@ struct BreathView: View {
     
     var body: some View {
         VStack {
-            Text(BreathViewModel.title)
+            Text(viewModel.title)
                 .font(.system(size: 34, weight: .bold))
             Text("\(Int(viewModel.totalBreathingSeconds) - viewModel.currentSecond)")
                 .font(.system(size: 60, weight: .bold))
@@ -19,7 +19,7 @@ struct BreathView: View {
                 .offset(y: 30)
                 .accessibilityIdentifier("breathing demonstration circle")
             
-            if viewModel.providerIsReady {
+            if viewModel.showJoinButton {
                 VStack {
                     Text(viewModel.providerText)
                         .font(.system(size: 17, weight: .regular))

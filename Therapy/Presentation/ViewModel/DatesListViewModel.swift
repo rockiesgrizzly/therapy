@@ -5,7 +5,7 @@ class DatesListViewModel: ObservableObject {
     let dateTasks: [DateTask]
     var colorScheme: ColorScheme
     
-    static let titleText = "My Tasks"
+    let titleText = "My Tasks"
     
     init(dateTaskToSelect: Binding<DateTask?>, dateTasks: [DateTask], colorScheme: ColorScheme) {
         _dateTaskToSelect = dateTaskToSelect

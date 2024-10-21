@@ -14,6 +14,12 @@ class AppContentNavigationViewModel: ObservableObject {
         }
     }
     
+    @Published var providerIsReady = ConnectToProviderUseCase.providerIsReady {
+        didSet {
+            GetNextViewTypeUseCase.providerIsReady = providerIsReady
+        }
+    }
+    
     @Published var dateTaskToSelect: DateTask? {
         didSet {
             guard let dateTaskToSelect else { return }
@@ -60,9 +66,10 @@ class AppContentNavigationViewModel: ObservableObject {
     // MARK: - Internal
     func refreshForViewAppearance() async {
         guard let result = try? await GetDatesUseCase.result else { return }
+        GetNextViewTypeUseCase.providerIsReady = providerIsReady
         
         switch result {
-        case .success(let dateTasks): 
+        case .success(let dateTasks):
             self.dateTasks = UpdateNextEnabledTaskUseCase.updateNextEnabledTaskIfNeeded(in: dateTasks)
         case .failure(let error): assertionFailure(error.localizedDescription)
         }
@@ -82,7 +89,7 @@ class AppContentNavigationViewModel: ObservableObject {
         currentView = GetNextViewTypeUseCase.result(after: currentViewType)
         dateTasks = UpdateNextEnabledTaskUseCase.updateNextEnabledTaskIfNeeded(in: dateTasks)
     }
-
+    
     
     private func userCompletedFinalTask() {
         completeCurrentDateTask()
