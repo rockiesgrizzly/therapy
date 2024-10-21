@@ -2,19 +2,21 @@ import SwiftUI
 
 struct AppContentNavigationView: View {
     @StateObject var viewModel = AppContentNavigationViewModel()
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationView {
             VStack {
                 switch viewModel.currentView {
                 case .datesList :
-                    DatesListView(viewModel: DatesListViewModel(dateTaskToSelect: $viewModel.dateTaskToSelect, dateTasks: viewModel.dateTasks))
+                    DatesListView(viewModel: DatesListViewModel(dateTaskToSelect: $viewModel.dateTaskToSelect, dateTasks: viewModel.dateTasks, colorScheme: colorScheme))
                         .transition(.opacity)
                 case .breath:
                     BreathView(viewModel: BreathViewModel(userCompletedBreathTask: $viewModel.userCompletedBreathTask,
                                                           userSkippedToSession: $viewModel.userJoinedFromBreathTask,
-                                                          totalBreathingSeconds: viewModel.currentDateTaskBreathCount))
-                        .transition(.opacity)
+                                                          totalBreathingSeconds: viewModel.currentDateTaskBreathCount,
+                                                          colorScheme: colorScheme))
+                    .transition(.opacity)
                 case .waiting:
                     WaitingView(viewModel: WaitingViewModel(userCompletedWaiting: $viewModel.userCompletedWaitingTask))
                         .transition(.opacity)

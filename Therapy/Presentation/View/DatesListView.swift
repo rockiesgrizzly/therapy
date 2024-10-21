@@ -27,6 +27,8 @@ struct DatesListView: View {
             Spacer()
         }
         .padding(.vertical, 90)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(viewModel.backgroundColor)
         .accessibilityIdentifier("dates list view")
     }
     

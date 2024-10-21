@@ -39,6 +39,8 @@ struct BreathView: View {
             Spacer()
         }
         .padding(.vertical, 90)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(viewModel.backgroundColor)
         .onAppear {
             viewModel.respondToOnAppear()
         }

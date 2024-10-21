@@ -7,6 +7,7 @@ class BreathViewModel: ObservableObject {
     @State var providerIsReady = true
     @Published var currentSecond: Int = 0
     @Published var scale: CGFloat = 1.0
+    var colorScheme: ColorScheme
     
     let totalBreathingSeconds: Float
     static let title = "Breathe for"
@@ -15,10 +16,11 @@ class BreathViewModel: ObservableObject {
     
     var timer: Timer?
     
-    init(userCompletedBreathTask: Binding<Bool>, userSkippedToSession: Binding<Bool>, totalBreathingSeconds: Float) {
+    init(userCompletedBreathTask: Binding<Bool>, userSkippedToSession: Binding<Bool>, totalBreathingSeconds: Float, colorScheme: ColorScheme) {
         _userCompletedBreathTask = userCompletedBreathTask
         _userSkippedToSession = userSkippedToSession
         self.totalBreathingSeconds = totalBreathingSeconds
+        self.colorScheme = colorScheme
     }
     
     func respondToOnAppear() {
@@ -33,5 +35,13 @@ class BreathViewModel: ObservableObject {
                 userCompletedBreathTask = true
             }
         }
+    }
+    
+    
+    var backgroundColor: Color {
+        if colorScheme == .light {
+           return Color(red: 253 / 255, green: 249 / 255, blue: 238 / 255)
+        }
+        return .black
     }
 }
